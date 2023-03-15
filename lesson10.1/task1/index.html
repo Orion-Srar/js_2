@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            padding: 2px;
+            border: blue 1px solid;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        button {
+            width: 100%;
+            margin: 2px 0 1px 0;
+        }
+    </style>
+</head>
+<body>
+
+<form name="user">
+    <label>Name: <input type="text" name="name"></label>
+    <label>Surname: <input type="text" name="surname"></label>
+    <label>Age: <input type="number" name="age"></label>
+    <button name="button">Send</button>
+</form>
+<div id="box"></div>
+
+<script src="main.js"></script>
+</body>
+</html>
