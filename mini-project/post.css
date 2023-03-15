@@ -5,43 +5,64 @@ body {
 }
 
 #container {
-    width: 40%;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid brown;
+    border: 2px solid #556B2F;
     border-radius: 10px;
-    box-shadow: 0 0 5px black;
+    box-shadow: 3px 3px 15px #6B8E23;
 }
 
 #wrap {
-    border-bottom: 2px solid brown;
+    width: 400px;
+    margin-top: 10px;
+    border: 2px solid #556B2F;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #6B8E23;
 }
 
-#wrap>h3 {
+#wrap > h3 {
     margin: 5px;
     text-align: center;
+    font-family: "Franklin Gothic Medium", serif;
+    color: #07520f;
 }
 
-#wrap>div {
+#wrap > div {
     margin: 0 10px 10px 10px;
+    font-family: "Comic Sans MS", serif;
+    color: #2f701e;
 }
 
-#buttons {
+#title {
+    font-family: "Franklin Gothic Medium", serif;
+    color: #07520f;
+}
+
+#comments {
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    margin-bottom: 1px;
+    margin-bottom: 10px;
 }
 
-#buttons>button {
-    width: 50%;
-    height: 30px;
-    border: saddlebrown 1px solid;
-    border-radius: 6px;
-    box-shadow: 0 0 2px black;
+#comment {
+    width: 16%;
+    border: 2px solid #556B2F;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #6B8E23;
 }
 
-#buttons>button:hover {
-    background: #4ca8a8;
+#comment > h4 {
+    margin: 5px;
+    text-align: center;
+    font-family: "Franklin Gothic Medium", serif;
+    color: #07520f;
 }
+
+#comment > div {
+    margin: 0 10px 10px 10px;
+    font-family: "Comic Sans MS", serif;
+    color: #2f701e;
+}
+

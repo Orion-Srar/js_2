@@ -10,6 +10,10 @@ async function foo() {
     container.setAttribute('id', 'container');
     wrap.appendChild(container);
 
+    const userDiv = document.createElement('div');
+    userDiv.setAttribute('id', 'user');
+    container.appendChild(userDiv);
+
     function openUser(obj) {
         for (const key in obj) {
             const objElement = obj[key];
@@ -17,13 +21,12 @@ async function foo() {
             if ((typeof objElement) === 'object') {
                 const div2 = document.createElement('div');
                 div2.innerText = `${key}:`
-                container.appendChild(div2);
+                userDiv.appendChild(div2);
                 openUser(objElement);
             } else {
                 const div = document.createElement('div');
                 div.innerText = `${key}: ${objElement}`;
-                container.appendChild(div);
-
+                userDiv.appendChild(div);
             }
         }
     }
@@ -34,48 +37,39 @@ async function foo() {
         .then(response => response.json())
         .then(posts => {
             const divPosts = document.createElement('div');
-            divPosts.setAttribute('id', 'posts');
-            divPosts.setAttribute('class', 'visible');
+            divPosts.setAttribute('class', 'posts visible');
             wrap.appendChild(divPosts);
 
             for (const post of posts) {
-                const divTitle = document.createElement('div');
-                divTitle.setAttribute('id', 'title');
-                divTitle.innerText = `${post.id}.${post.title}`;
+
+                const postDiv = document.createElement('div');
+                postDiv.setAttribute('id', 'post');
+                postDiv.innerText = `${post.id}.${post.title}`;
 
                 const button = document.createElement('button');
                 button.innerText = 'Post details';
-                button.onclick = function () {
-                    location.href = `post-details.html?userId=${user.id}`
-                }
+                postDiv.appendChild(button);
 
-                divPosts.append(divTitle, button);
+                button.onclick = function () {
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    location.href = `post-details.html?userId=${user.id}&postId=${post.id}`
+                }
+                divPosts.appendChild(postDiv);
             }
         });
 
     const button = document.createElement('button');
     button.innerText = 'Post of current user';
-
-    const buttonHome = document.createElement('button');
-    buttonHome.innerText = 'Back';
+    container.appendChild(button);
 
 
     button.onclick = function () {
-        const postsDiv = document.getElementById('posts');
+        const postsDiv = document.querySelector('.posts');
+        console.log(postsDiv);
         postsDiv.classList.toggle('visible');
 
     }
 
-    buttonHome.onclick = function () {
-        location.href = 'index.html';
-    }
-
-    const buttons = document.createElement('div');
-    buttons.setAttribute('id', 'buttons');
-    wrap.appendChild(buttons);
-
-
-    buttons.append(buttonHome, button);
     document.body.appendChild(wrap);
 }
 

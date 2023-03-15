@@ -1,38 +1,37 @@
 const url = new URL(location.href);
-const userId = url.searchParams.get('userId');
+const postId = url.searchParams.get('postId');
+
+const posts = JSON.parse(localStorage.getItem('posts'));
+const post = posts.find(post => post.id = postId);
+
+const container = document.createElement('div');
+container.setAttribute('id', 'container');
+document.body.appendChild(container);
+
+const postDiv = document.createElement('div');
+container.appendChild(postDiv);
+postDiv.setAttribute('id', 'wrap');
+postDiv.innerHTML = `<h3>${post.id}.${post.title}</h3><div>${post.body}</div>`
+
+const title = document.createElement('div');
+title.setAttribute('id', 'title');
+title.innerHTML = `<h3>Comments chosen posts</h3>`
+container.appendChild(title);
+
+const commentsDiv = document.createElement('div');
+commentsDiv.setAttribute('id', 'comments');
+container.appendChild(commentsDiv);
 
 async function foo() {
-    const posts = await fetch(` https://jsonplaceholder.typicode.com/users/${userId}/posts`).then(response => response.json());
-    const container = document.createElement('div');
-    container.setAttribute('id', 'container');
-    document.body.appendChild(container);
+    const comments = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`).then(response => response.json());
+    for (const comment of comments) {
 
-    for (const post of posts) {
-        const wrap = document.createElement('div');
-        container.appendChild(wrap);
-        wrap.setAttribute('id', 'wrap');
-        console.log(post);
-        wrap.innerHTML = `<h3>${post.title}</h3><div>${post.body}</div>`
-
+        const commentDiv = document.createElement('div');
+        commentDiv.setAttribute('id', 'comment');
+        commentsDiv.appendChild(commentDiv);
+        commentDiv.innerHTML = `<h4>${comment.id}.${comment.name}</h4><div>${post.body}</div>`
     }
-    const buttonBack = document.createElement('button');
-    buttonBack.innerText = 'Back';
-    buttonBack.onclick = function () {
-        location.href = `user-details.html?userid=${userId}`;
-        console.log(userId);
-
-    }
-
-    const buttonHome = document.createElement('button');
-    buttonHome.innerText = 'Home';
-    buttonHome.onclick = function f() {
-        location.href = 'index.html';
-    }
-
-    const buttons = document.createElement('div');
-    buttons.setAttribute('id', 'buttons');
-    container.appendChild(buttons);
-    buttons.append(buttonHome, buttonBack)
 }
 
 foo();
+

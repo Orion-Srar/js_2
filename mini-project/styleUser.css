@@ -1,68 +1,90 @@
-body{
-display: flex;
+body {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#wrap{
-    width: 40%;
+#wrap {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid brown;
+    border: 2px solid #556B2F;
     border-radius: 10px;
-    box-shadow: 0 0 5px black;
+    box-shadow: 3px 3px 15px #6B8E23;
 }
 
 #container {
-    width: 98%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5px;
 }
 
-#buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-bottom: 1px;
+#user {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Comic Sans MS", serif;
+    color: #07520f;
+    border: 2px solid #556B2F;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #6B8E23;
 }
 
-#buttons>button {
-    width: 45%;
+#container > button {
+    width: 90%;
     height: 30px;
-    border: saddlebrown 2px solid;
+    font-size: large;
+    font-family: "Franklin Gothic Medium", serif;
+    color: #07520f;
+    border: #556B2F solid 2px;
     border-radius: 6px;
-    box-shadow: 0 0 2px black;
+    background: #6B8E23;
 }
 
-#buttons>button:hover {
-    background: #4ca8a8;
+#container > button:hover {
+    background: #556B2F;
 }
 
-#posts {
-    width: 96%;
-    padding: 5px;
-}
-
-#posts>#title {
-    padding: 6px;
-    border: 2px solid saddlebrown;
-    /*background: #4ca8a8;*/
-}
-
-#posts>button {
+.posts {
     width: 100%;
-    margin-bottom: 5px;
-    border: saddlebrown 2px solid;
-    border-radius: 2px;
-    box-shadow: 0 0 2px black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-#posts>button:hover {
-    background: #4ca8a8;
+#post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-size: large;
+    font-family: "Comic Sans MS", serif;
+    color: #07520f;
+    width: 16%;
+    margin: 15px 0 15px 0;
+    padding: 6px;
+    border: 2px solid #556B2F;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #6B8E23;
+}
 
+#post > button {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-family: "Franklin Gothic Medium", serif;
+    font-size: 15px;
+    color: #07520f;
+    border: #556B2F solid 2px;
+    background: #6B8E23;
+}
+
+#post > button:hover {
+    background: #556B2F;
 }
 
 .visible {

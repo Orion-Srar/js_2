@@ -8,10 +8,12 @@ async function foo() {
     for (const user of usersArray) {
         const wrap = document.createElement('div');
         wrap.setAttribute('id', 'wrap');
+
         const div = document.createElement('div');
         div.setAttribute('id', 'name');
-        const button = document.createElement('button');
         div.innerText = `${user.id}. ${user.name}`
+
+        const button = document.createElement('button');
         button.innerText = 'Details';
 
         container.appendChild(wrap);
@@ -20,9 +22,7 @@ async function foo() {
         button.onclick = function () {
             location.href = `user-details.html?userid=${user.id}`;
         };
-
     }
-
 }
 
 foo();
